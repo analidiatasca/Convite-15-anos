@@ -1,0 +1,228 @@
+/* ======== LAYOUT PRINCIPAL ======== */
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #e0ebf5;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.winter {
+  position: relative;
+  cursor: pointer;
+  animation: up 3s linear infinite;
+}
+
+/* animação de "flutuar" */
+@keyframes up {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+}
+
+/* ======== ENVELOPE ======== */
+
+.envelope {
+  position: relative;
+  width: 303.5px;
+  height: 220px;
+  background-color: #7bb6e8;
+  border: 2px solid #d9ecff;
+}
+
+.envelope:before {
+  background-color: #7bb6e8;
+  content: "";
+  position: absolute;
+  width: 212px;
+  height: 212px;
+  transform: rotate(45deg);
+  top: -105px;
+  left: 44px;
+  border-radius: 30px 0 0 0;
+}
+
+/* ======== CARTÃO ======== */
+
+.card {
+  position: absolute;
+  background-color: #e6eff8;
+  width: 270px;
+  height: 200px;
+  top: 10px;
+  left: 15px;
+  box-shadow: -5px -5px 100px rgba(0, 0, 0, 0.4);
+}
+
+.card:before {
+  content: "";
+  position: absolute;
+  border: 3px solid #003049;
+  border-style: dotted;
+  width: 240px;
+  height: 170px;
+  left: 12px;
+  top: 12px;
+}
+
+.text {
+  position: absolute;
+  font-family: "Brush Script MT", cursive;
+  font-size: 28px;
+  text-align: center;
+  line-height: 25px;
+  top: 25px;
+  margin-left: 30px;
+  margin-right: 30px;
+  color: #003049;
+}
+
+.frase {
+  position: absolute;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 11px;
+  text-align: center;
+  line-height: 25px;
+  margin-left: 5px;
+  top: 65px;
+  color: #003049;
+}
+
+/* ======== NEVE ======== */
+
+.snowflakes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 340px;
+  height: 320px;
+  pointer-events: none;
+  z-index: 20;
+  overflow: visible;
+}
+
+.snowflake {
+  position: absolute;
+  top: -20px;
+  width: 14px;
+  height: 14px;
+  background: rgba(255,255,255,0.95);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255,255,255,0.9);
+  opacity: 0;
+  transform-origin: center;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.snowflake.one   { left: 8%;  animation-duration: 3.8s; animation-delay: 0s;  }
+.snowflake.two   { left: 25%; animation-duration: 4.6s; animation-delay: 0.6s;}
+.snowflake.three { left: 45%; animation-duration: 3.2s; animation-delay: 0.2s;}
+.snowflake.four  { left: 65%; animation-duration: 5.0s; animation-delay: 1.0s;}
+.snowflake.five  { left: 82%; animation-duration: 4.0s; animation-delay: 0.4s;}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10px) rotate(0deg) scale(0.6);
+    opacity: 0;
+  }
+  10% { opacity: 1; }
+  50% {
+    transform: translateY(140px) rotate(45deg) scale(0.9) translateX(6px);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(300px) rotate(90deg) scale(1.1) translateX(-10px);
+    opacity: 0;
+  }
+}
+
+/* ======== PARTE FRONTAL DO ENVELOPE ======== */
+
+.front {
+  position: absolute;
+  border-right: 180px solid #a7d3f5;
+  border-top: 95px solid transparent;
+  border-bottom: 100px solid transparent;
+  left: 119px;
+  top: 5px;
+  width: 183px;
+  height: 210.5px;
+  z-index: 10;
+}
+
+.front:before {
+  position: absolute;
+  content: "";
+  border-left: 300px solid #cbe7ff;
+  border-top: 195px solid transparent;
+  left: -117.4px;
+  top: -95px;
+  width: 60px;
+  height: 212.5px;
+}
+
+/* ======== SOMBRA ======== */
+
+.shadow {
+  position: absolute;
+  width: 330px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+  top: 260px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scale 3s linear infinite;
+  z-index: -1;
+}
+
+@keyframes scale {
+  0%, 100% { transform: translateX(-50%) scaleX(1); }
+  50% { transform: translateX(-50%) scaleX(0.85); }
+}
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 25px;
+  width: 350px;
+  border-radius: 10px;
+  text-align: center;
+  animation: pop 0.3s ease-out;
+}
+
+@keyframes pop {
+  from { transform: scale(0.6); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  cursor: pointer;
+  font-size: 28px;
+}
