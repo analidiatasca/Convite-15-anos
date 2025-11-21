@@ -5,7 +5,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #e0ebf5;
+  background: linear-gradient(180deg, #e9f5ff 0%, #c9e7ff 40%, #a6d5ff 100%);
   overflow: hidden;
 }
 
@@ -397,14 +397,13 @@ body {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(255, 245, 245, 0.6);
   justify-content: center;
   align-items: center;
   z-index: 1000;
 }
 
 .modal-content {
-  background: #b2dcfc98;
+  background: #cce6faf6;
   padding: 25px;
   width: 350px;
   border-radius: 10px;
@@ -555,3 +554,57 @@ body {
   transform: scale(1);
   opacity: 1;
 }
+
+.glow-breath {
+  border: 2px solid #aee4ff;
+  border-radius: 12px;
+  animation: glowPulse 2.5s infinite ease-in-out;
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 4px #aee4ff;
+  }
+  50% {
+    box-shadow: 0 0 14px #d9f6ff;
+  }
+  100% {
+    box-shadow: 0 0 4px #aee4ff;
+  }
+}
+
+.frost-crystals {
+  position: relative;
+}
+
+.frost-crystals::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 15px;
+  pointer-events: none;
+  background:
+    url('https://i.imgur.com/gW0m2fV.png') repeat; /* textura de cristais */
+  opacity: 0.25;
+  mix-blend-mode: screen;
+}
+
+
+.button-flash {
+  position: relative;
+  overflow: hidden;
+}
+
+.button-flash:active::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(173, 216, 255, 0.6);
+  animation: flashBlue 0.35s ease;
+}
+
+@keyframes flashBlue {
+  0% { opacity: 0.7; }
+  100% { opacity: 0; }
+}
+
