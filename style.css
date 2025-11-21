@@ -77,6 +77,31 @@ body {
   top: 12px;
 }
 
+/* Botão Frozen ajustado */
+.frozen-btn {
+  padding: 8px 18px; /* menor */
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.20);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 10px;
+  color: #ffffff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.25s ease;
+  box-shadow: 0 0 8px rgba(185, 220, 255, 0.35);
+  text-align: center;
+  margin-top: 50px;
+  margin-right: 2px;
+}
+
+.frozen-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 12px rgba(200, 240, 255, 0.8);
+  transform: scale(1.02);
+}
+
+
 .text {
   position: absolute;
   font-family: "Brush Script MT", cursive;
@@ -111,22 +136,26 @@ body {
   pointer-events: none;
   z-index: 20;
   overflow: visible;
+  
 }
+
 
 .snowflake {
   position: absolute;
   top: -20px;
   width: 14px;
   height: 14px;
-  background: rgba(255,255,255,0.95);
+  color: white;
   border-radius: 50%;
-  box-shadow: 0 0 8px rgba(255,255,255,0.9);
   opacity: 0;
   transform-origin: center;
   animation-name: fall;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+  
 }
+
+
 
 .snowflake.one   { left: 8%;  animation-duration: 3.8s; animation-delay: 0s;  }
 .snowflake.two   { left: 25%; animation-duration: 4.6s; animation-delay: 0.6s;}
@@ -215,7 +244,7 @@ body {
 
 .a4 {
   right: 30%;
-  transform: scale(0.7);
+  transform: scale(0.3);
   opacity: 1;
   animation: slideUp 10s linear 1, sideSway 2s ease-in-out 6 alternate;
   animation-fill-mode: forwards;
@@ -272,6 +301,33 @@ body {
   transform: scale(1.2);
   opacity: 1;
   animation: slideUp 22s linear 1, sideSway 2s ease-in-out 6 alternate;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
+}
+
+.a11 {
+  left: 22%;
+  transform: scale(0.8);
+  opacity: 1;
+  animation: slideUp 24s linear 1, sideSway 2s ease-in-out 6 alternate;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
+}
+
+.a12 {
+  right: 2%;
+  transform: scale(1.2);
+  opacity: 1;
+  animation: slideUp 24s linear 1, sideSway 2s ease-in-out 6 alternate;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
+}
+
+.a13 {
+  right: 75%;
+  transform: scale(0.1);
+  opacity: 1;
+  animation: slideUp 26s linear 1, sideSway 2s ease-in-out 6 alternate;
   animation-fill-mode: forwards;
   animation-delay: 0.5s;
 }
@@ -361,10 +417,141 @@ body {
   to { transform: scale(1); opacity: 1; }
 }
 
+
+
+
 .close {
   position: absolute;
   top: 15px;
   right: 25px;
   cursor: pointer;
   font-size: 28px;
+}
+
+/* ======== BRILHO DE GELO ======== */
+.winter {
+  filter: drop-shadow(0 0 12px #d7ecff) drop-shadow(0 0 22px #b7dfff);
+  animation: iceGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes iceGlow {
+  0% {
+    filter: drop-shadow(0 0 10px #cfe7ff) drop-shadow(0 0 18px #a8d4ff);
+  }
+  100% {
+    filter: drop-shadow(0 0 18px #e8f5ff) drop-shadow(0 0 35px #b2d8ff);
+  }
+}
+
+/* ======== NEBLINA AZUL GELO ======== */
+.fog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -2;
+  background: radial-gradient(
+      circle at 50% 80%,
+      rgba(180, 210, 255, 0.45),
+      rgba(150, 190, 255, 0.25),
+      rgba(120, 170, 240, 0.18),
+      rgba(100, 150, 230, 0.12),
+      rgba(80, 130, 210, 0.08),
+      transparent
+  );
+  animation: fogMove 12s ease-in-out infinite alternate;
+}
+
+@keyframes fogMove {
+  0% { filter: blur(18px); transform: translateY(0); }
+  100% { filter: blur(32px); transform: translateY(-18px); }
+}
+
+/* ❄ Floco 100% branco e customizável */
+.snowflake {
+  position: fixed;
+  top: -20px;
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(
+    circle,
+    rgba(255,255,255,0.9) 40%,
+    rgba(255,255,255,0.4) 70%,
+    transparent 100%
+  );
+  border-radius: 50%;
+  filter: blur(1px) drop-shadow(0 0 3px rgba(255,255,255,0.7));
+  opacity: 0.7; /* mais transparente */
+  pointer-events: none;
+  animation: snowfall linear infinite;
+  z-index: 9999999;
+}
+
+@keyframes snowfall {
+  0% { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(110vh) translateX(-15px); }
+}
+
+
+/* ✨ Brilho gelado */
+.ice-glow {
+  filter: drop-shadow(0 0 12px #bdeaff) drop-shadow(0 0 25px #d9f6ff);
+  transition: 1s ease;
+}
+
+.ice-glow:hover {
+  filter: drop-shadow(0 0 18px #e7faff) drop-shadow(0 0 35px #ffffff);
+}
+
+/* Glow azulado */
+.card {
+  box-shadow: 0 0 18px rgba(170, 220, 255, 0.45);
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 0 30px rgba(200, 240, 255, 0.9);
+}
+
+#openModal {
+  background: rgba(0, 80, 140, 0.7) !important; /* mais opaco */
+  color: #ffffff !important; 
+  backdrop-filter: blur(4px);
+  border: 2px solid rgba(180, 220, 255, 0.9);
+  text-shadow: 0 0 6px #003b60;
+  font-weight: bold;
+  box-shadow: 0 0 12px rgba(170, 220, 255, 0.9);
+  transition: 0.3s ease;
+}
+
+/* efeito hover (ficar ainda mais nítido) */
+#openModal:hover {
+  background: rgba(10, 110, 180, 0.85) !important;
+  box-shadow: 0 0 18px rgba(200, 240, 255, 1);
+  transform: scale(1.05);
+}
+
+.hover-sparkle {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-sparkle::after {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.7) 0%, transparent 70%);
+  transform: scale(0);
+  opacity: 0;
+  transition: 0.4s ease;
+}
+
+.hover-sparkle:hover::after {
+  transform: scale(1);
+  opacity: 1;
 }
