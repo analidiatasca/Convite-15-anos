@@ -305,32 +305,6 @@ body {
   animation-delay: 0.5s;
 }
 
-.a11 {
-  left: 22%;
-  transform: scale(0.8);
-  opacity: 1;
-  animation: slideUp 24s linear 1, sideSway 2s ease-in-out 6 alternate;
-  animation-fill-mode: forwards;
-  animation-delay: 0.5s;
-}
-
-.a12 {
-  right: 2%;
-  transform: scale(1.2);
-  opacity: 1;
-  animation: slideUp 24s linear 1, sideSway 2s ease-in-out 6 alternate;
-  animation-fill-mode: forwards;
-  animation-delay: 0.5s;
-}
-
-.a13 {
-  right: 75%;
-  transform: scale(0.1);
-  opacity: 1;
-  animation: slideUp 26s linear 1, sideSway 2s ease-in-out 6 alternate;
-  animation-fill-mode: forwards;
-  animation-delay: 0.5s;
-}
 
 
 
@@ -505,14 +479,7 @@ body {
 }
 
 /* Glow azulado */
-.card {
-  box-shadow: 0 0 18px rgba(170, 220, 255, 0.45);
-  transition: 0.3s ease;
-}
 
-.card:hover {
-  box-shadow: 0 0 30px rgba(200, 240, 255, 0.9);
-}
 
 #openModal {
   background: rgba(0, 80, 140, 0.7) !important; /* mais opaco */
@@ -532,28 +499,6 @@ body {
   transform: scale(1.05);
 }
 
-.hover-sparkle {
-  position: relative;
-  overflow: hidden;
-}
-
-.hover-sparkle::after {
-  content: "";
-  position: absolute;
-  width: 150%;
-  height: 150%;
-  top: -50%;
-  left: -50%;
-  background: radial-gradient(circle, rgba(255,255,255,0.7) 0%, transparent 70%);
-  transform: scale(0);
-  opacity: 0;
-  transition: 0.4s ease;
-}
-
-.hover-sparkle:hover::after {
-  transform: scale(1);
-  opacity: 1;
-}
 
 .glow-breath {
   border: 2px solid #aee4ff;
@@ -590,21 +535,5 @@ body {
 }
 
 
-.button-flash {
-  position: relative;
-  overflow: hidden;
-}
 
-.button-flash:active::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(173, 216, 255, 0.6);
-  animation: flashBlue 0.35s ease;
-}
-
-@keyframes flashBlue {
-  0% { opacity: 0.7; }
-  100% { opacity: 0; }
-}
 

@@ -53,7 +53,7 @@ function createSnow() {
     setTimeout(() => snow.remove(), 15000);
 }
 
-setInterval(createSnow, 120);
+setInterval(createSnow, 200);
 
 
 
